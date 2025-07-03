@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Varonis & Microsoft: Securing the AI Revolution</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f0f4f8;
+        }
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 300px;
+            max-height: 350px;
+        }
+        @media (min-width: 768px) {
+            .chart-container {
+                height: 350px;
+                max-height: 400px;
+            }
+        }
+        .kpi-card {
+            background-color: #00529B;
+            color: white;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .kpi-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+        .flow-step {
+            border: 2px solid #BEE3F8;
+            background-color: white;
+        }
+        .flow-arrow {
+            color: #0078D4;
+        }
+        .section-title {
+            color: #00529B;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800">
+
+    <div class="container mx-auto p-4 md:p-8">
+
+        <header class="text-center mb-12">
+            <h1 class="text-4xl md:text-5xl font-extrabold section-title mb-2">Securing the AI Revolution</h1>
+            <p class="text-lg md:text-xl text-gray-600">How the Varonis & Microsoft partnership de-risks enterprise AI adoption.</p>
+        </header>
+
+        <main class="space-y-16">
+        
+            <section id="challenge" class="text-center">
+                 <h2 class="text-3xl font-bold section-title mb-4">The Core AI Security Challenge</h2>
+                 <p class="max-w-3xl mx-auto text-gray-600 mb-8">Generative AI like Microsoft Copilot inherits user permissions. When data access is not controlled, AI can easily expose sensitive information. This is the primary barrier to widespread, secure AI adoption in the enterprise.</p>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+                    <div class="kpi-card rounded-lg shadow-lg p-8 flex flex-col justify-center items-center">
+                        <span class="text-7xl font-extrabold text-cyan-300">99%</span>
+                        <p class="mt-2 text-xl font-semibold text-center">of organizations have exposed sensitive data accessible by AI.</p>
+                    </div>
+                     <div class="kpi-card rounded-lg shadow-lg p-8 flex flex-col justify-center items-center">
+                        <span class="text-7xl font-extrabold text-cyan-300">10%</span>
+                        <p class="mt-2 text-xl font-semibold text-center">of all company data is open to every single employee, on average.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section id="synergy">
+                <h2 class="text-3xl font-bold section-title text-center mb-4">A Unified Security Fabric</h2>
+                <p class="max-w-3xl mx-auto text-gray-600 mb-12 text-center">The engineering-led partnership combines Microsoft Purview's foundational governance with Varonis's advanced, automated data security intelligence to create a powerful, unified control plane.</p>
+                <div class="bg-white rounded-lg shadow-md p-6 md:p-8">
+                    <div class="flex flex-col md:flex-row items-center justify-center space-y-4 md:space-y-0 md:space-x-4 text-center">
+                        <div class="flow-step p-4 rounded-lg w-full md:w-1/3">
+                            <h3 class="font-bold text-lg text-blue-800">1. Microsoft Native Tools</h3>
+                            <p class="text-sm text-gray-600">Provide foundational data labeling and DLP policy enforcement within the Microsoft 365 ecosystem.</p>
+                        </div>
+                        <div class="text-4xl font-bold flow-arrow transform md:rotate-0 rotate-90">+</div>
+                        <div class="flow-step p-4 rounded-lg w-full md:w-1/3">
+                            <h3 class="font-bold text-lg text-blue-800">2. Varonis Intelligence Layer</h3>
+                            <p class="text-sm text-gray-600">Adds superior classification, automated remediation of excess permissions, and cross-platform behavioral analysis.</p>
+                        </div>
+                         <div class="text-4xl font-bold flow-arrow transform md:rotate-0 rotate-90">=</div>
+                        <div class="p-4 rounded-lg w-full md:w-1/3 bg-blue-100 border-2 border-blue-500">
+                             <h3 class="font-bold text-lg text-blue-900">3. Enhanced Security Outcome</h3>
+                            <p class="text-sm text-gray-700">A true least-privilege data environment where AI can be deployed safely, with risks continuously minimized through automation.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="copilot">
+                <h2 class="text-3xl font-bold section-title text-center mb-4">Securing Microsoft 365 Copilot</h2>
+                <p class="max-w-3xl mx-auto text-gray-600 mb-12 text-center">Varonis offers a purpose-built solution to manage Copilot's "blast radius" — the potential for data exposure. It secures the AI before and after deployment by reducing exposure, monitoring activity, and detecting threats.</p>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                    <div class="bg-white rounded-lg shadow-md p-6">
+                        <h3 class="font-bold text-xl text-center mb-4 section-title">Controlling the "Blast Radius"</h3>
+                        <p class="text-center text-gray-600 mb-4">Varonis visualizes and automatically remediates overexposed sensitive data, shrinking the pool of information Copilot can access.</p>
+                        <div class="chart-container">
+                            <canvas id="blastRadiusChart"></canvas>
+                        </div>
+                    </div>
+                    <div class="bg-white rounded-lg shadow-md p-6">
+                        <h3 class="font-bold text-xl text-center mb-4 section-title">Multi-Layered Copilot Defense</h3>
+                        <p class="text-center text-gray-600 mb-4">The solution provides a complete security lifecycle for AI adoption, from readiness to continuous monitoring.</p>
+                        <ul class="space-y-3 text-gray-700">
+                            <li class="flex items-start"><span class="text-blue-500 font-bold mr-2">✓</span><div><strong class="font-semibold">Readiness Assessments:</strong> Identifies exposed sensitive data before deployment.</div></li>
+                            <li class="flex items-start"><span class="text-blue-500 font-bold mr-2">✓</span><div><strong class="font-semibold">Continuous Remediation:</strong> Automatically enforces least-privilege access policies.</div></li>
+                            <li class="flex items-start"><span class="text-blue-500 font-bold mr-2">✓</span><div><strong class="font-semibold">Activity Monitoring:</strong> Provides a forensic audit trail of all Copilot interactions.</div></li>
+                            <li class="flex items-start"><span class="text-blue-500 font-bold mr-2">✓</span><div><strong class="font-semibold">Threat Detection:</strong> Uses behavioral analysis to detect anomalous AI usage.</div></li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <section id="partners">
+                <h2 class="text-3xl font-bold section-title text-center mb-4">Unlocking Partner Opportunities</h2>
+                <p class="max-w-3xl mx-auto text-gray-600 mb-12 text-center">The partnership elevates channel partners to strategic advisors, creating new, high-margin service revenue streams centered around enabling AI securely for customers.</p>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                    <div class="bg-white rounded-lg shadow-md p-6">
+                        <h3 class="font-bold text-xl text-center mb-4 section-title">Emerging High-Value Services</h3>
+                        <p class="text-center text-gray-600 mb-4">Partners can capitalize on the demand for AI security with a portfolio of new service offerings built on the Varonis-Microsoft stack.</p>
+                         <div class="chart-container h-80 md:h-96">
+                            <canvas id="partnerRevenueChart"></canvas>
+                        </div>
+                    </div>
+                     <div class="bg-white rounded-lg shadow-md p-6 h-full">
+                        <h3 class="font-bold text-xl text-center mb-4 section-title">Go-to-Market Acceleration</h3>
+                         <p class="text-center text-gray-600 mb-4">The Azure Marketplace simplifies procurement and empowers growth.</p>
+                        <div class="space-y-4">
+                            <div class="bg-blue-50 p-4 rounded-lg">
+                                <h4 class="font-bold text-blue-800">Simplified Procurement</h4>
+                                <p class="text-sm text-gray-700">Reduces administrative overhead and accelerates sales cycles for faster deal closure.</p>
+                            </div>
+                             <div class="bg-blue-50 p-4 rounded-lg">
+                                <h4 class="font-bold text-blue-800">MACC Burn-down</h4>
+                                <p class="text-sm text-gray-700">Customers can use existing Microsoft Azure Consumption Commitments to purchase Varonis, a powerful financial driver.</p>
+                            </div>
+                             <div class="bg-blue-50 p-4 rounded-lg">
+                                <h4 class="font-bold text-blue-800">Channel Inclusion</h4>
+                                <p class="text-sm text-gray-700">Multiparty private offers ensure partners benefit directly from marketplace transactions, reinforcing the 100% channel model.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <section id="leadership">
+                <h2 class="text-3xl font-bold section-title text-center mb-4">Solidifying Market Leadership</h2>
+                <p class="max-w-3xl mx-auto text-gray-600 mb-12 text-center">Industry analysts recognize Varonis as a dominant leader in data security, a position amplified by the deep integration with Microsoft. This creates a formidable competitive moat.</p>
+                 <div class="bg-white rounded-lg shadow-md p-6">
+                    <h3 class="font-bold text-xl text-center mb-4 section-title">Forrester Wave™: Data Security Platforms, Q1 2025</h3>
+                    <p class="text-center text-gray-600 mb-4">Varonis received the highest score in both the "Strategy" and "Current Offering" categories, cementing its leader status.</p>
+                     <div class="chart-container" style="max-width: 450px; height: 400px;">
+                        <canvas id="forresterChart"></canvas>
+                    </div>
+                 </div>
+            </section>
+        </main>
+    </div>
+
+    <footer class="text-center p-8 mt-12 bg-gray-800 text-gray-300">
+        <p>This infographic visualizes data from the report on the Varonis and Microsoft strategic partnership, announced July 1, 2025.</p>
+        <p class="text-sm text-gray-500 mt-2">Generated by Canvas Infographics.</p>
+    </footer>
+
+    <script>
+        const wrapLabel = (label) => {
+            const maxLength = 16;
+            if (label.length <= maxLength) {
+                return label;
+            }
+            const words = label.split(' ');
+            const lines = [];
+            let currentLine = '';
+            for (const word of words) {
+                if ((currentLine + ' ' + word).trim().length > maxLength) {
+                    lines.push(currentLine.trim());
+                    currentLine = word;
+                } else {
+                    currentLine = (currentLine + ' ' + word).trim();
+                }
+            }
+            if (currentLine) {
+                lines.push(currentLine.trim());
+            }
+            return lines;
+        };
+        
+        const tooltipTitleCallback = (tooltipItems) => {
+            const item = tooltipItems[0];
+            let label = item.chart.data.labels[item.dataIndex];
+            if (Array.isArray(label)) {
+              return label.join(' ');
+            } else {
+              return label;
+            }
+        };
+
+        const chartColors = {
+            darkBlue: '#00529B',
+            brightBlue: '#0078D4',
+            lightBlue: '#4CC2F0',
+            veryLightBlue: '#BEE3F8',
+            accent: '#F59E0B'
+        };
+
+        const defaultChartOptions = {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+                legend: {
+                    position: 'bottom',
+                    labels: {
+                        color: '#4A5568',
+                        font: {
+                           family: "'Inter', sans-serif"
+                        }
+                    }
+                },
+                tooltip: {
+                    enabled: true,
+                    backgroundColor: 'rgba(0,0,0,0.7)',
+                    titleFont: {
+                        family: "'Inter', sans-serif",
+                        weight: 'bold'
+                    },
+                    bodyFont: {
+                       family: "'Inter', sans-serif"
+                    },
+                    callbacks: {
+                        title: tooltipTitleCallback
+                    }
+                }
+            }
+        };
+
+        const blastRadiusCtx = document.getElementById('blastRadiusChart').getContext('2d');
+        new Chart(blastRadiusCtx, {
+            type: 'doughnut',
+            data: {
+                labels: ['Exposed Sensitive Data', 'Secured Data'],
+                datasets: [{
+                    label: 'Data Exposure',
+                    data: [10, 90],
+                    backgroundColor: [chartColors.accent, chartColors.brightBlue],
+                    borderColor: '#ffffff',
+                    borderWidth: 4,
+                }]
+            },
+            options: {
+                ...defaultChartOptions,
+                cutout: '70%',
+                plugins: {
+                    ...defaultChartOptions.plugins,
+                    title: {
+                        display: true,
+                        text: 'Average Company Data Exposure',
+                        font: { size: 16, family: "'Inter', sans-serif" },
+                        color: '#2D3748',
+                        padding: {
+                            bottom: 20
+                        }
+                    }
+                }
+            }
+        });
+
+        const partnerRevenueCtx = document.getElementById('partnerRevenueChart').getContext('2d');
+        new Chart(partnerRevenueCtx, {
+            type: 'bar',
+            data: {
+                labels: [
+                    wrapLabel('Copilot Readiness Assessments'), 
+                    wrapLabel('Implementation & Remediation'), 
+                    wrapLabel('Managed Security Services')
+                ],
+                datasets: [{
+                    label: 'Relative Revenue Opportunity',
+                    data: [65, 85, 95],
+                    backgroundColor: [chartColors.lightBlue, chartColors.brightBlue, chartColors.darkBlue],
+                    borderRadius: 5
+                }]
+            },
+            options: {
+                ...defaultChartOptions,
+                indexAxis: 'y',
+                scales: {
+                    x: {
+                        beginAtZero: true,
+                        grid: {
+                            display: false
+                        },
+                        ticks: { color: '#4A5568' }
+                    },
+                    y: {
+                        grid: {
+                            display: false
+                        },
+                        ticks: { color: '#4A5568' }
+                    }
+                },
+                plugins: {
+                     ...defaultChartOptions.plugins,
+                     legend: { display: false }
+                }
+            }
+        });
+
+        const forresterCtx = document.getElementById('forresterChart').getContext('2d');
+        new Chart(forresterCtx, {
+            type: 'polarArea',
+            data: {
+                labels: ['Strategy', 'Current Offering', 'Market Presence', 'Innovation', 'Customer Satisfaction'],
+                datasets: [{
+                    label: 'Leadership Score',
+                    data: [5.0, 5.0, 4.8, 4.9, 5.0],
+                    backgroundColor: [
+                        'rgba(0, 120, 212, 0.7)',
+                        'rgba(76, 194, 240, 0.7)',
+                        'rgba(0, 82, 155, 0.7)',
+                        'rgba(190, 227, 248, 0.8)',
+                        'rgba(245, 158, 11, 0.7)'
+                    ],
+                    borderWidth: 1,
+                    borderColor: '#ffffff'
+                }]
+            },
+            options: {
+                ...defaultChartOptions,
+                scales: {
+                    r: {
+                        beginAtZero: true,
+                        max: 5,
+                        ticks: {
+                            display: false
+                        },
+                        grid: {
+                            color: 'rgba(0, 0, 0, 0.1)'
+                        },
+                        pointLabels: {
+                            font: {
+                                size: 14,
+                                weight: 'bold',
+                                family: "'Inter', sans-serif"
+                            },
+                            color: '#2D3748'
+                        }
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>
